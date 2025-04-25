@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e 
+
+alarm() {
+  afplay /System/Library/Sounds/Hero.aiff
+  afplay /System/Library/Sounds/Hero.aiff
+  afplay /System/Library/Sounds/Hero.aiff
+  /Users/denys/.local/bin/alerter -sound default -title "Timer" -message "Time's up" > /dev/null &
+}
+
+periods=$@
+
+if [ -z "$periods" ]; then
+  periods="22 2 25 11"
+fi
+
+
+for i in $periods; do
+  sleep $(( i * 1 ))
+  alarm
+done
