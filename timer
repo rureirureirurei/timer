@@ -17,6 +17,6 @@ fi
 
 
 for i in $periods; do
-  sleep $(( i * 1 ))
+  sleep $(( i * 60 ))
   alarm
 done
